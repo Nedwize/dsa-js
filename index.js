@@ -14,4 +14,6 @@ console.log('Popping')
 const popped = LL.pop()
 console.log('Popped', popped)
 
+LL.getTail()
+
 LL.printList('NODE_VIEW')

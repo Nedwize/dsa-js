@@ -63,6 +63,16 @@ class LinkedList {
         return lastNode
     }
 
+    getTail() {
+        console.log('Tail: ', this.tail)
+        return
+    }
+
+    getHead() {
+        console.log('Head: ', this.head)
+        return
+    }
+
     // Print the LL
     printList(type = 'NODE_VIEW') {
         let temp = this.head
