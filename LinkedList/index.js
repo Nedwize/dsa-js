@@ -61,6 +61,23 @@ class LinkedList {
         return temp
     }
 
+    unshift(value) {
+        // Create a new Node
+        const newNode = new Node(value)
+
+        // If LL is empty
+        if (!this.head) {
+            this.head = newNode
+            this.tail = newNode
+        } else {
+            newNode.next = this.head
+            this.head = newNode
+        }
+
+        this.length++
+        return this
+    }
+
     getTail() {
         console.log('Tail: ', this.tail)
         return

@@ -6,14 +6,9 @@ LL.push(2)
 LL.push(3)
 LL.push(4)
 LL.push(5)
+LL.unshift(6)
 
 LL.printList('NODE_VIEW')
-
-console.log('Popping')
-
-const popped = LL.pop()
-console.log('Popped', popped)
 
 LL.getTail()
-
-LL.printList('NODE_VIEW')
+LL.getHead()
