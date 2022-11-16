@@ -31,6 +31,38 @@ class LinkedList {
         return this
     }
 
+    pop() {
+        // Remove last node from LL
+
+        // If head and tail are null
+        if (!this.head) {
+            throw new Error('LinkedList is empty, nothing to pop')
+        }
+
+        // If LL has only 1 Node
+        if (this.length === 1) {
+            const lastNode = this.head
+            this.head = null
+            this.tail = null
+            this.length--
+            return lastNode
+        }
+
+        const lastNode = this.tail
+        let node = this.head
+        while (node !== lastNode) {
+            this.tail = node
+            node = node.next
+        }
+
+        // Detach last node from second last node
+        // Second last node is this.tail right now
+        this.tail.next = null
+        this.length--
+        // Return last node
+        return lastNode
+    }
+
     // Print the LL
     printList(type = 'NODE_VIEW') {
         let temp = this.head
