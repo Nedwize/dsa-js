@@ -40,15 +40,6 @@ class LinkedList {
             return undefined
         }
 
-        // If LL has only 1 Node
-        if (this.length === 1) {
-            const lastNode = this.head
-            this.head = null
-            this.tail = null
-            this.length--
-            return lastNode
-        }
-
         let temp = this.head
         let pre = this.head
         while (temp.next) {
@@ -60,8 +51,14 @@ class LinkedList {
         // Second last node is this.tail right now
         this.tail.next = null
         this.length--
+
+        // If LL has only 1 Node
+        if (this.length === 0) {
+            this.head = null
+            this.tail = null
+        }
         // Return last node
-        return lastNode
+        return temp
     }
 
     getTail() {
