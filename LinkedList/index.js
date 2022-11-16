@@ -34,7 +34,7 @@ class LinkedList {
     pop() {
         // Remove last node from LL
 
-        // If head and tail are null
+        // Edgecase: LL is empty
         if (!this.head) {
             console.log('LinkedList is empty, nothing to pop')
             return undefined
@@ -52,7 +52,7 @@ class LinkedList {
         this.tail.next = null
         this.length--
 
-        // If LL has only 1 Node
+        // Edgecase: LL only has one element
         if (this.length === 0) {
             this.head = null
             this.tail = null
@@ -76,6 +76,26 @@ class LinkedList {
 
         this.length++
         return this
+    }
+
+    shift() {
+        // Edgecase: LL is empty
+        if (!this.head) {
+            console.log('LinkedList is empty, nothing to shift')
+            return undefined
+        }
+        const temp = this.head
+
+        // Edgecase: LL only has one element
+        if (this.length === 1) {
+            this.head = null
+            this.tail = null
+        } else {
+            this.head = this.head.next
+        }
+        this.length--
+        temp.next = null // Remove attachment from LinkedList
+        return temp
     }
 
     getTail() {
