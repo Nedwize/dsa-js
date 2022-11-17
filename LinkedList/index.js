@@ -133,6 +133,20 @@ class LinkedList {
         return true
     }
 
+    remove(idx) {
+        if (idx === 0) return this.shift()
+        if (idx === this.length - 1) return this.pop()
+        if (idx < 0 || idx >= this.length) return undefined
+
+        const before = this.get(idx - 1)
+        const temp = before.next
+
+        before.next = temp.next
+        temp.next = null
+        this.length--
+        return temp
+    }
+
     getTail() {
         console.log('Tail: ', this.tail)
         return
