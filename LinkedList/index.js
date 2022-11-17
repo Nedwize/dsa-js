@@ -98,6 +98,28 @@ class LinkedList {
         return temp
     }
 
+    get(idx) {
+        // Edgecase: LL index out of bounds
+        if (idx < 0 || idx >= this.length) {
+            console.log('LinkedList index out of bounds')
+            return undefined
+        }
+        let temp = this.head
+        for (let i = 0; i < idx; i++) {
+            temp = temp.next
+        }
+        return temp
+    }
+
+    set(idx, value) {
+        const temp = this.get(idx)
+        if (temp) {
+            temp.value = value
+            return true
+        }
+        return false
+    }
+
     getTail() {
         console.log('Tail: ', this.tail)
         return
