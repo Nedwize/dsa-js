@@ -21,6 +21,20 @@ class DoublyLinkedList {
         this.length++
         return this
     }
+
+    pop() {
+        if (!this.length) {
+            console.log('Doubly Linked List is empty, nothing to pop')
+            return undefined
+        }
+        const temp = this.tail
+        this.tail = this.tail.prev
+        this.tail.next = null
+        this.tail = prev
+        temp.prev = null
+        this.length--
+        return temp
+    }
 }
 
 module.exports = DoublyLinkedList
