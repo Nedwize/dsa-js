@@ -23,21 +23,21 @@ class DoublyLinkedList {
     }
 
     pop() {
-        if (!this.length) {
+        if (this.length === 0) {
             console.log('Doubly Linked List is empty, nothing to pop')
             return undefined
         }
         const temp = this.tail
-        this.tail = this.tail.prev
-        this.tail.next = null
-        this.tail = prev
-        temp.prev = null
-        this.length--
         // Edgecase: If the last element gets popped from the linked list
-        if (this.length === 0) {
+        if (this.length === 1) {
             this.head = null
             this.tail = null
+        } else {
+            this.tail = this.tail.prev
+            this.tail.next = null
+            temp.prev = null
         }
+        this.length--
         return temp
     }
 }
