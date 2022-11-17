@@ -120,6 +120,19 @@ class LinkedList {
         return false
     }
 
+    insert(idx, value) {
+        if (idx === 0) return this.unshift(value) // Inserting at last
+        if (idx === this.length) return this.push(value) // Inserting at first
+        if (idx < 0 || idx > this.length) return false
+
+        const newNode = new Node(value)
+        const temp = this.get(idx - 1)
+        newNode.next = temp.next
+        temp.next = newNode
+        this.length++
+        return true
+    }
+
     getTail() {
         console.log('Tail: ', this.tail)
         return
