@@ -36,7 +36,8 @@ class LinkedList {
 
         // If head and tail are null
         if (!this.head) {
-            throw new Error('LinkedList is empty, nothing to pop')
+            console.log('LinkedList is empty, nothing to pop')
+            return undefined
         }
 
         // If LL has only 1 Node
@@ -48,13 +49,13 @@ class LinkedList {
             return lastNode
         }
 
-        const lastNode = this.tail
-        let node = this.head
-        while (node !== lastNode) {
-            this.tail = node
-            node = node.next
+        let temp = this.head
+        let pre = this.head
+        while (temp.next) {
+            pre = temp
+            temp = temp.next
         }
-
+        this.tail = pre
         // Detach last node from second last node
         // Second last node is this.tail right now
         this.tail.next = null
