@@ -33,6 +33,11 @@ class DoublyLinkedList {
         this.tail = prev
         temp.prev = null
         this.length--
+        // Edgecase: If the last element gets popped from the linked list
+        if (this.length === 0) {
+            this.head = null
+            this.tail = null
+        }
         return temp
     }
 }
