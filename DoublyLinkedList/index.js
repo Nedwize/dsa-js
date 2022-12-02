@@ -87,6 +87,15 @@ class DoublyLinkedList {
         }
         return temp
     }
+
+    set(idx, value) {
+        const node = this.get(idx)
+        if (node) {
+            node.value = value
+            return true
+        }
+        return false
+    }
 }
 
 module.exports = DoublyLinkedList
