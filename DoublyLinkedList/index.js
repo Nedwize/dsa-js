@@ -69,6 +69,24 @@ class DoublyLinkedList {
         this.length--
         return temp
     }
+
+    get(idx) {
+        if (idx < 0 || idx >= this.length) {
+            console.log('DoublyLinkedList index out of bounds')
+            return undefined
+        }
+        let temp = this.head
+        if (idx > this.length / 2) {
+            for (let i = 0; i < idx; i++) {
+                temp = temp.next
+            }
+        } else {
+            for (let i = this.length - 1; i > idx; i--) {
+                temp = temp.prev
+            }
+        }
+        return temp
+    }
 }
 
 module.exports = DoublyLinkedList
