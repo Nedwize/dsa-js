@@ -76,7 +76,7 @@ class DoublyLinkedList {
             return undefined
         }
         let temp = this.head
-        if (idx > this.length / 2) {
+        if (idx < this.length / 2) {
             for (let i = 0; i < idx; i++) {
                 temp = temp.next
             }
@@ -117,8 +117,8 @@ class DoublyLinkedList {
     }
 
     remove(idx) {
-        if (idx === 0) return this.shift(value)
-        if (idx === this.length) return this.pop()
+        if (idx === 0) return this.shift()
+        if (idx === this.length - 1) return this.pop()
         if (idx < 0 || idx > this.length) return false
 
         const temp = this.get(idx)
@@ -131,7 +131,19 @@ class DoublyLinkedList {
         temp.prev = null
 
         this.length--
-        return true
+        return temp
+    }
+
+    printList(type = 'NODE_VIEW') {
+        let temp = this.head
+        if (type === 'NODE_VIEW') {
+            console.log(JSON.stringify(temp, null, 2))
+            return
+        }
+        while (temp !== null) {
+            console.log(temp.value)
+            temp = temp.next
+        }
     }
 }
 
