@@ -12,7 +12,7 @@ class Stack {
         if (this.length === 0) {
             this.top = newNode
         } else {
-            newNode.next = this.top.next
+            newNode.next = this.top
             this.top = newNode
         }
         this.length++
