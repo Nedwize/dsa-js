@@ -99,7 +99,7 @@ class DoublyLinkedList {
 
     insert(idx, value) {
         if (idx === 0) return this.unshift(value)
-        if (idx === this.length) return this.push()
+        if (idx === this.length) return this.push(value)
         if (idx < 0 || idx > this.length) return false
 
         const newNode = new Node(value)
@@ -119,7 +119,7 @@ class DoublyLinkedList {
     remove(idx) {
         if (idx === 0) return this.shift()
         if (idx === this.length - 1) return this.pop()
-        if (idx < 0 || idx > this.length) return false
+        if (idx < 0 || idx >= this.length) return undefined
 
         const temp = this.get(idx)
         const before = temp.prev
@@ -134,7 +134,7 @@ class DoublyLinkedList {
         return temp
     }
 
-    printList(type = 'NODE_VIEW') {
+    printList(type = 'VALUE') {
         let temp = this.head
         if (type === 'NODE_VIEW') {
             console.log(JSON.stringify(temp, null, 2))

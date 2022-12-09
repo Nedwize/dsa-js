@@ -12,27 +12,23 @@ const DoublyLinkedList = require('./DoublyLinkedList')
 // LL.reverse()
 
 // LL.printList('VALUE')
-
 let myDLL = new DoublyLinkedList(1)
-myDLL.push(2)
 myDLL.push(3)
-myDLL.push(4)
-myDLL.push(5)
 
-console.log('DLL before remove():')
-myDLL.printList('VALUE')
+console.log('DLL before insert():')
+myDLL.printList()
 
-console.log('\nRemoved node:')
-console.log(myDLL.remove(2).value)
-console.log('DLL after remove() in middle:')
-myDLL.printList('VALUE')
+myDLL.insert(1, 2)
 
-console.log('\nRemoved node:')
-console.log(myDLL.remove(0).value)
-console.log('DLL after remove() of first node:')
-myDLL.printList('VALUE')
+console.log('\nDLL after insert(2) in middle:')
+myDLL.printList()
 
-console.log('\nRemoved node:')
-console.log(myDLL.remove(2).value)
-console.log('DLL after remove() of last node:')
-myDLL.printList('VALUE')
+myDLL.insert(0, 0)
+
+console.log('\nDLL after insert(0) at beginning:')
+myDLL.printList()
+
+myDLL.insert(4, 4)
+
+console.log('\nDLL after insert(4) at end:')
+myDLL.printList()
